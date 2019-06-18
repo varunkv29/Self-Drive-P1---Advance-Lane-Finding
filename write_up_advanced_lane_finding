@@ -1,0 +1,34 @@
+PROJECT2 - ADVANCED LANE FINDING
+
+STEP1: CAMEARA CALIBARATION
+* similar to example file calibration was performed using the function cv2.findChessboardCorners and cv2.drawChessboardCorners
+
+
+STEP2: BINARY TRANSFORMATION
+* initially I tried hls transform and sobel transformation and the image was combined, but this failed to capture the change in road color.
+* Later, rgb_yellow transform, rgb_white_transform,hls_transform and sobel transform  was done and all images was combined
+
+STEP3: WARP IMAGE
+* Perspective transform was used to get rectify image to required form 
+
+STEP4: IDENTIFY LANES
+* Lanes was Identified using fit polynomial and sliding widow method, sliding window was comented out to avoid it in final image
+* Left and right lane was drawn and their pixels were changed to red and blue color respectively
+
+STEP5: DRIVE AREA
+* Lane lines were used to draw the left and right lines using cv2.polylines and the area between it was filled with green color using fillPoly
+
+STEP6: UNWARP IMAGE
+* Image was unwarped and added to the original image
+
+STEP7: ADD TEXT
+* functions from drive area was called to calculate alignment of car with road and to calculate curvature.
+
+STEP8: VIDEO
+* All the above steps were put in function called processed_image() which was called to create the video 
+
+***********************************************************************************************************
+NOTE: 
+* Another function called process_image() is created for testing images as for images and video feed differs.
+* two python files are created, one is for the video (pipeline), other python file contains breakup(Project2_advanced_lane_finding) of all the steps.
+
